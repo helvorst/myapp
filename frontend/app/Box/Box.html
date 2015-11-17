@@ -1,0 +1,35 @@
+<div ng-hide="$root.mycharts[(chartInfo.id)].dataLoaded"><img src="app/Styles/img/spinner.GIF"/></div>
+
+<div class="box">
+
+
+  <!--CONTENT-->
+  <div  id="boxContent{{chartInfo.id}}"  class="mycontainer" >
+
+
+    <div id="chartPanel{{chartInfo.id}}" class="" style="height:100%">
+
+      <div id="chartPanelBody{{chartInfo.id}}" class="myPanelBody">
+
+        <!--GRAPH-->
+        <!--name for map only-->
+        <div ng-show="chartInfo.settings.defaultKind=='map'" , class="chartName" , id="chartName{{chartInfo.id}}">{{chartInfo.name}}</div>
+
+        <div ng-hide="chartInfo.settings.defaultKind=='table'" id="fuckenSingleChartID{{chartInfo.id}}" class="fuckenChart"></div>
+
+        <!--TABLES-->
+        <div ng-show="chartInfo.settings.defaultKind=='table'">
+          <!---->
+          <div ng-show="chartInfo.settings.tableConfig.table=='simple'" id="fuckenTableID{{chartInfo.id}}" class="mytablePanel tbblAutoheight" class="fuckenChart"></div>
+
+          <div ng-show="chartInfo.settings.tableConfig.table=='pivot'" id="fuckenPivotTableID{{chartInfo.id}}" class="mytablePanel tbblAutoheight" after-render-tbl="AppendTableAndChartToBox()" class="fuckenChart"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>

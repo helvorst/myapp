@@ -1,0 +1,58 @@
+
+.mysidebar {
+  z-index: 1;
+  position: fixed;
+  /*width: auto;*/
+  /*margin-top: 51px;*/
+  top: 15%;
+  /*bottom: auto;*/
+  background: rgba(0,0,0,0);
+}
+
+a.btn.btn-default:hover {
+  color: orange;
+}
+
+.mylogo {
+  height: 58px;
+  width: 58px;
+  margin-top: 5px;
+  margin-right: 15px;
+  margin-right: 0;
+}
+
+a.mybrandName {
+
+  font-family: "Play", serif;
+  font-size: 42px;
+  /*font-weight: 700;*/
+  color: dimgrey;
+  margin-right: 15px;
+  margin-left: 25px;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-decoration: none;
+  text-shadow: 0, 0, 0, 0;
+  /*text-justify: distribute;*/
+  /*text-transform: uppercase;*/
+}
+
+a.mybrandName:hover {
+  text-decoration: none;
+  cursor: hand;
+  /*color: whitesmoke;*/
+}
+
+.sidebarBtn {
+  width: 50px;
+}
+
+.sidebarLeftMenu {
+  top: 0;
+  left: 50px;
+}
+
+.container > .navbar-collapse, .container-fluid > .navbar-collapse {
+  margin-right: -15px;
+  margin-left: 55px;
+}

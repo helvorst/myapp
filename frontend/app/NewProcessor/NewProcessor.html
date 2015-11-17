@@ -1,0 +1,31 @@
+<div class="mypagecontainer">
+  <h2>Создать процессор</h2>
+
+  <form class="form">
+
+
+    <div class="form-group row col-sm-9">
+      <div class="col-sm-offset-2 col-sm-2">
+        <span class="label control-label">Имя процессора</span>
+      </div>
+      <div class="col-sm-5">
+        <input type="text" ng-model="processorName" required="true" placeholder="Имя процессора" class="form-control"/>
+      </div>
+    </div>
+
+
+    <div class="form-group row col-sm-9">
+      <div class="col-sm-offset-4 col-sm-5">
+        <a class="btn btn-success btn-block" ng-click="createProcessor()">
+          <i class="fa fa-floppy-o fa-2x"></i> Сохранить
+        </a>
+      </div>
+    </div>
+  </form>
+
+  <div class="row">
+    <div ng-if="processorSaved==false" class="col-sm-offset-2 col-sm-9 alert alert-danger"><p>Не удалось сохранить процессор</p></div>
+  </div>
+
+
+</div>

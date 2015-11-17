@@ -1,0 +1,193 @@
+.underCover {
+  display: none;
+}
+
+body
+{
+  font-family: 'Play', serif;
+  /*background-image: url("../../img/blackcubes.png");*/
+  background-image: url("../../img/blackfone2.png");
+  background-repeat: repeat-x;
+  /*background-size: 612px 611px;*/
+  background-size: 797px 833px;
+}
+
+::-webkit-scrollbar
+{
+  width: 12px;  /* for vertical scrollbars */
+  height: 12px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track
+{
+  background:  #3A3F44;
+}
+
+::-webkit-scrollbar-thumb
+{
+  background: orange;
+}
+
+.myListItem {
+  padding: 5px;
+  padding-bottom: 15px;
+  /*border: 1px solid slategray;*/
+  background:  #3A3F44;
+  /*opacity: 0.8;*/
+  float: left;
+  margin: 15px;
+  border-radius: 10px;
+  /*box-shadow: 5px 7px 2px  rgba(0,0,0,0.4);*/
+}
+
+.myul
+{
+  list-style-type: none;
+}
+section {
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 1.25em 1.75em;
+  /*background: #ddd;*/
+  /*border: solid #fff;*/
+  flex: 1;
+  min-width: 30px;
+}
+
+/*box wrapping processor*/
+.box{
+  height:100%;
+  width:100%;
+
+}
+.fuckenChart{
+  height:100%;
+  width:100%;
+}
+/*container inside box*/
+.mycontainer{
+  height:100%;
+  width: 100%;
+
+}
+
+
+/*FOR TABLE*/
+.mytablePanel{
+  padding: 5px;
+  /*margin-top:10px;*/
+  background:  white;
+
+}
+
+/*.myPanelHDR{*/
+/*/!*background: #E64D2C;*!/*/
+/*text-shadow: 0;*/
+/*}*/
+
+.dx-hidden{
+  display: none;
+}
+
+.navbar{
+  height: 72px;
+  margin: 0px;
+}
+.navbar.navbar-default{
+  margin:0px;
+}
+
+
+.hideBehind{
+  opacity: 0;
+}
+.myPanelBody{
+  /*to center content horiz*/
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  background: white;
+  height:100%;
+  /*border-radius: 10px;*/
+}
+.charticon{
+  /*margin: 3px;*/
+}
+.mypagecontainer{
+  margin-left: 55px;
+  margin-right: 25px;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'Play', serif;
+}
+.fa{
+  margin-right: 4px;
+}
+
+.chartName{
+  text-align: center;
+  font-size: 26px;
+}
+
+/*подсвечивать оранжевым меню*/
+.dropdown-menu>li>a:hover {
+  color: orange;
+}
+
+.myalert{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto
+}
+
+.tbblAutoheight{
+  height: auto;
+}
+
+/***************zoom view********************/
+.modal-dialog {
+  width: 95%;
+  height: auto;
+  max-height: 2000px;
+}
+
+.modal-content {
+  height: auto;
+  max-height: 2000px;
+  overflow-x: hidden;
+  margin: 10px;
+}
+
+.zoomViewLeftPanel {
+  /*background: whitesmoke;*/
+  margin: 0px;
+  height: 2000px;
+  max-height: 2000px;
+  overflow-x: hidden;
+}
+.zoomViewTablesContainer{
+  padding: 15px;
+}
+/*make footer line white*/
+.modal-footer {
+  border-top: 1px solid whitesmoke;
+  margin: 15px;
+}
+
+
+/*without it tooltips are hidden by  modal window*/
+.dxc-tooltip {
+  z-index: 2000 !important;
+}
+
+.dxm-tooltip {
+  z-index: 2000 !important;
+}
+
+.dx-overlay-content {
+  z-index: 2000 !important;
+}
+
+.dx-overlay-wrapper {
+  z-index: 2000 !important;
+}

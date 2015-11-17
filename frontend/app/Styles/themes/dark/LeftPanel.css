@@ -1,0 +1,132 @@
+.yellowHeader{
+  color: orange;
+  text-align: center;
+  font-family: 'Jura', serif;
+  font-weight: bold;
+  text-shadow: 0, 0, 0, 0;
+}
+.yellowSubHeader{
+  color: orange;
+  text-align: left;
+  font-family: 'Jura', serif;
+  /*font-weight: bold;*/
+  text-shadow: 0, 0, 0, 0;
+}
+
+.yellowHR {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid ;
+  /*margin: 1em 0;*/
+  padding: 0;
+  width: 90%;
+  alignment: center;
+}
+
+.shortHR {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid ;
+  /*margin: 1em 0;*/
+  padding: 0;
+  width: 70%;
+  alignment: left;
+  margin-left: 0;
+}
+/**/
+
+.myCarouselCnt{
+
+  margin-top: 13px;
+  top: 55px;
+  position: absolute;
+  /*display: inline-block;*/
+}
+
+.myCarouselBody{
+  position: absolute;
+  /*top: 50%;*/
+  /*margin-top: 10px;*/
+  top: 0px;
+  /*z-index: 1000;*/
+}
+
+.carousel-control {
+  position: absolute;
+  top: 40px;
+  /*bottom: auto;*/
+  z-index: 5;
+  /*display: inline-block;*/
+  /*margin-top: 20px;*/
+  height: 40px;
+
+
+}
+.carousel-control.right{
+  background-image: none;
+}
+.carousel-control.left{
+  background-image: none;
+}
+
+.leftPanelClose{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.carousel{
+  position: relative;
+  height: 100%;
+  /*padding: 2em;*/
+}
+
+.item{
+  /*padding-left: 2em;*/
+  /*padding-right: 2em;*/
+  margin: auto;
+}
+
+.leftPanel a {
+  color: whitesmoke;
+}
+.leftPanel a:hover {
+  color: orange;
+  text-decoration: none;
+  cursor: hand;
+}
+
+
+.carousel-indicators .active {
+  background-color: orange;
+}
+
+
+.carousel-indicators li {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin: 1px;
+  text-indent: -999px;
+  border: 1.5px solid white;
+  border-radius: 9px;
+  cursor: pointer;
+  /*background-color: #000 \9;*/
+  /*background-color: rgba(0,0,0,0);*/
+}
+label {
+  font-weight: normal;
+}
+
+
+
+ol.carousel-indicators{
+  height: 10px;
+}
+
+.btn.btn-default.activechart{
+  color: black;
+  background: orange;
+}

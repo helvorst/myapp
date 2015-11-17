@@ -1,0 +1,25 @@
+<div ng-hide="mycharts.length>0" class="mypagecontainer">
+  <h3>Для этого дэшборда нет графиков</h3>
+</div>
+
+<div ng-show="mycharts.length>0" class="mypagecontainer">
+  <h2>{{dashName}}</h2>
+</div>
+
+<div ng-show="!sortableOptions.disabled" class="mypagecontainer">
+  <div class="alert alert-warning myalert" role="alert">
+    Сортировка включена: чтобы переместить чарт, перетащите его контейнер в нужное место
+  </div>
+
+</div>
+
+<ul id="mychartsID" ng-show="mycharts.length>0" ui-sortable="sortableOptions" ng-model="mycharts" class="myul">
+  <li id="box{{chart.id}}" ng-repeat="chart in mycharts" class="myListItem" resizable
+      r-directions="['right', 'bottom', 'left', 'top']" r-flex="false">
+
+    <my-box info="chart" after-render="renderFinished(chart.id)"></my-box>
+
+  </li>
+</ul>
+
+

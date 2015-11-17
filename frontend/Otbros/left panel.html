@@ -1,0 +1,230 @@
+
+<!--after-render-tbl="pullMyColumns()"-->
+
+<!--NAVBAR-->
+<!--<nav id="navbar{{chartInfo.id}}" class="navbar navbar-default" id="menu">-->
+<!--<div class="container-fluid">-->
+<!--&lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;-->
+<!--<div class="navbar-header">-->
+<!--<button type="button" class="navbar-toggle collapsed navbar-btn" data-toggle="collapse"-->
+<!--data-target="#bs-box-navbar-collapse-{{chartInfo.id}}" aria-expanded="false">-->
+<!--<span class="sr-only">Toggle navigation</span>-->
+<!--<span class="icon-bar"></span>-->
+<!--<span class="icon-bar"></span>-->
+<!--<span class="icon-bar"></span>-->
+<!--</button>-->
+<!--&lt;!&ndash;<a class="navbar-brand" href="#">Brand</a>&ndash;&gt;-->
+<!--</div>-->
+
+<!--&lt;!&ndash; Collect the nav links, forms, and other content for toggling &ndash;&gt;-->
+<!--<div class="collapse navbar-collapse" id="bs-box-navbar-collapse-{{chartInfo.id}}">-->
+<!--<ul id="leftNavbarPortion{{chartInfo.id}}" class="nav navbar-nav navbar-left">-->
+<!--<li>-->
+<!--<div id="exportMenu{{chartInfo.id}}"></div>-->
+<!--</li>-->
+<!--</ul>-->
+
+<!--<ul id="rightNavbarPortion{{chartInfo.id}}" class="nav navbar-nav navbar-right">-->
+
+<!--<a class="btn btn-default navbar-btn" id="zoomview-toggle" data-toggle="tooltip"-->
+<!--ng-click="zoomView(chartInfo.id)"-->
+<!--title="В отдельное окно">-->
+<!--<i class="fa fa-arrows-alt fa-1x"></i>-->
+<!--</a>-->
+<!--<a class="btn btn-default navbar-btn" id="table-toggle" data-toggle="tooltip"-->
+<!--ng-click="openTable(chartInfo.id)"-->
+<!--title="Показать/скрыть таблицу">-->
+<!--<i class="fa fa-table fa-1x"></i>-->
+<!--</a>-->
+<!--<a class="btn btn-default navbar-btn" id="leftPanel-toggle" data-toggle="tooltip"-->
+<!--ng-click="openLeftPanel(chartInfo.id)"-->
+<!--title="Настройки и фильтры">-->
+<!--<i class="fa fa-cog fa-1x"></i>-->
+<!--</a>-->
+
+
+<!--</ul>-->
+<!--</div>-->
+<!--&lt;!&ndash; /.navbar-collapse &ndash;&gt;-->
+<!--</div>-->
+<!--&lt;!&ndash; /.container-fluid &ndash;&gt;-->
+<!--</nav>-->
+
+<!--LEFT PANEL-->
+<div id="leftPanel{{chartInfo.id}}" class="leftPanel underCover">
+
+
+  <div id="myCarousel{{chartInfo.id}}" ng-non-bindable class="carousel slide" data-interval="false" data-ride="carousel">
+    <!--data-slide is used by both Bootstrap and ui.bootstrap so there is a conflict here: use  ng-non-bindable-->
+
+    <!-- Wrapper for slides -->
+    <div class="myCarouselBody carousel-inner" role="listbox">
+
+      <div class="item active">
+        <div class="panel-heading">
+          <h3 class="yellowHeader">График</h3>
+        </div>
+        <hr class="yellowHR"/>
+
+
+        <div class="panel-body">
+          <h4 class="yellowSubHeader">Какого типа?</h4>
+          <a class="btn btn-default "
+             ng-class="{'btn btn-default' : true, 'activechart' : (whoIsActive=='bar' || whoIsActive=='stackedBar' || whoIsActive=='fullStackedBar')}"
+             ng-click="redrawChartPivot('bar')"><i
+            class="fa fa-bar-chart fa-2x charticon"></i></a>
+
+          <a class="btn btn-default " ng-class="{'btn btn-default' : true, 'activechart' : (whoIsActive=='pie')}"
+             ng-click="redrawChartPivot('pie')"><i
+            class="fa fa-pie-chart fa-2x charticon"></i></a>
+
+          <a class="btn btn-default "
+             ng-class="{'btn btn-default' : true, 'activechart' : (whoIsActive=='line' || whoIsActive=='stackedLine' || whoIsActive=='fullStackedLine')}"
+             ng-click="redrawChartPivot('line')"><i
+            class="fa fa-line-chart fa-2x charticon"></i></a>
+
+          <a class="btn btn-default "
+             ng-class="{'btn btn-default' : true, 'activechart' : (whoIsActive=='area' || whoIsActive=='stackedArea' || whoIsActive=='fullStackedArea')}"
+             ng-click="redrawChartPivot('area')"><i
+            class="fa fa-area-chart fa-2x charticon"></i></a>
+
+          <br/>
+          <hr class="shortHR"/>
+          <br/>
+
+
+          <div ng-show="(whoIsActive=='bar' || whoIsActive=='stackedBar' || whoIsActive=='fullStackedBar')">
+            <p class="yellowSubHeader">Бар-чарт:
+              <span ng-show=" whoIsActive=='bar'">обычный </span>
+              <span ng-show=" whoIsActive=='stackedBar'">стэкированный </span>
+              <span ng-show=" whoIsActive=='fullStackedBar'">стэкированный нормированный </span>
+            </p>
+            <button class="btn btn-default " ng-class="{'btn btn-default' : true, 'activechart' : whoIsActive=='bar'}"
+                    ng-click="redrawChartPivot('bar')">Обычный
+            </button>
+            <button class="btn btn-default "
+                    ng-class="{'btn btn-default' : true, 'activechart' :  whoIsActive=='stackedBar'}"
+                    ng-click="redrawChartPivot('stackedBar')">Стэк
+            </button>
+            <button class="btn btn-default "
+                    ng-class="{'btn btn-default' : true, 'activechart' :  whoIsActive=='fullStackedBar'}"
+                    ng-click="redrawChartPivot('fullStackedBar')">Нормированный
+            </button>
+          </div>
+
+          <div ng-show="(whoIsActive=='pie')">
+            <p class="yellowSubHeader">Пирог-чарт:
+              <span ng-show=" whoIsActive=='pie'">обычный </span>
+            </p>
+            <button class="btn btn-default " type="checkbox"
+                    ng-class="{'btn btn-default' : true, 'activechart' : whoIsActive=='pie'}"
+                    ng-click="redrawChartPivot('pie')">Обычный
+            </button>
+          </div>
+
+          <div ng-show="(whoIsActive=='line' || whoIsActive=='stackedLine' || whoIsActive=='fullstackedLine')">
+            <p class="yellowSubHeader">Линия:
+              <span ng-show=" whoIsActive=='line'">обычный </span>
+              <span ng-show=" whoIsActive=='stackedLine'">стэкированный </span>
+              <span ng-show=" whoIsActive=='fullstackedLine'">стэкированный нормированный </span>
+            </p>
+            <button class="btn btn-default " type="checkbox"
+                    ng-class="{'btn btn-default' : true, 'activechart' : whoIsActive=='line'}"
+                    ng-click="redrawChartPivot('line')">Обычный
+            </button>
+            <button class="btn btn-default " type="checkbox"
+                    ng-class="{'btn btn-default' : true, 'activechart' : whoIsActive=='stackedLine'}"
+                    ng-click="redrawChartPivot('stackedLine')">Стэк
+            </button>
+            <button class="btn btn-default " type="checkbox"
+                    ng-class="{'btn btn-default' : true, 'activechart' : whoIsActive=='fullstackedLine'}"
+                    ng-click="redrawChartPivot('fullstackedLine')">Нормированный стэк
+            </button>
+          </div>
+
+          <div ng-show="(whoIsActive=='area' || whoIsActive=='stackedArea' || whoIsActive=='fullstackedArea')">
+            <p class="yellowSubHeader">Область:
+              <span ng-show=" whoIsActive=='area'">обычный </span>
+              <span ng-show=" whoIsActive=='stackedArea'">стэкированный </span>
+              <span ng-show=" whoIsActive=='fullStackedArea'">стэкированный нормированный </span></p>
+            <button class="btn btn-default " type="checkbox"
+                    ng-class="{'btn btn-default' : true, 'activechart' : whoIsActive=='area'}"
+                    ng-click="redrawChartPivot('area')">Обычный
+            </button>
+            <button class="btn btn-default " type="checkbox"
+                    ng-class="{'btn btn-default' : true, 'activechart' : whoIsActive=='stackedArea'}"
+                    ng-click="redrawChartPivot('stackedArea')">Стэк
+            </button>
+            <button class="btn btn-default " type="checkbox"
+                    ng-class="{'btn btn-default' : true, 'activechart' : whoIsActive=='fullstackedArea'}"
+                    ng-click="redrawChartPivot('fullstackedArea')">Нормированный стэк
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="panel-heading">
+          <h3 class="yellowHeader">Что отображать?</h3>
+        </div>
+        <hr/>
+        <div class="panel-body">
+          <h4 class="yellowSubHeader">Кто x?</h4>
+
+          <div ng-repeat="fieldX in myDataConfig track by $index" ng-show="fieldX.isX">
+            <input type="checkbox" ng-model="fieldX.checked" ng-change="redrawChartPivot(whoIsActive)">
+            <label>{{fieldX.fieldName}} </label>
+          </div>
+          <hr/>
+          <h4 class="yellowSubHeader">Кто y?</h4>
+
+          <div ng-repeat="fieldY in myDataConfig track by $index" ng-show="fieldY.isY">
+            <input type="checkbox" ng-model="fieldY.checked" ng-change="redrawChartPivot(whoIsActive)">
+            <label>{{fieldY.fieldName}}</label>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="panel-heading">
+          <h3 class="yellowHeader">Обосрацца</h3>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="panel-heading">
+          <h3 class="yellowHeader">Нагадили?</h3>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Indicators -->
+    <ol class="carousel-indicators myCarouselCnt">
+      <li data-target="#myCarousel{{chartInfo.id}}" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel{{chartInfo.id}}" data-slide-to="1"></li>
+      <li data-target="#myCarousel{{chartInfo.id}}" data-slide-to="2"></li>
+      <li data-target="#myCarousel{{chartInfo.id}}" data-slide-to="3"></li>
+    </ol>
+    <!--<div class="">-->
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel{{chartInfo.id}}" role="button" data-slide="prev">
+      <span class="fa fa-chevron-left fa-2x" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel{{chartInfo.id}}" role="button" data-slide="next">
+      <span class="fa fa-chevron-right fa-2x" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+
+    <a class="leftPanelClose" ng-click="openLeftPanel(chartInfo.id)" role="button">
+      <i class="fa fa-times fa-2x"></i>
+    </a>
+    <!--</div>-->
+
+
+  </div>
+</div>

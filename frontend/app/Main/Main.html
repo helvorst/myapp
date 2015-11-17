@@ -1,0 +1,72 @@
+<div class="mysidebar" role="navigation">
+
+  <ul class="nav" id="myside-menu">
+
+    <li>
+      <div class="dropdown">
+        <a class="btn btn-default sidebarBtn dropdown-toggle" type="button" id="dropdownMenuDash" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" title="Мои дэшборды">
+          <i class="fa fa-desktop fa-2x"></i>
+          <!--<i class="fa fa-desktop fa-2x"></i>-->
+        </a>
+        <ul class="dropdown-menu dropdown-menu-left sidebarLeftMenu" aria-labelledby="dropdownMenuDash" >
+          <li ng-repeat="dashgroup in mydashes" class="dropdown-submenu">
+            <a tabindex="-1" href="">{{dashgroup.group}}</a>
+            <ul class="dropdown-menu scrollablemenu">
+              <li ng-repeat="dash in dashgroup.groupDashes" ><a tabindex="-1" href="" ui-sref="main.dash({dashID: dash.id, dashName: dash.name})">{{dash.name}}</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li ng-show="LoggedInAs.isAdmin==true">
+      <div class="dropdown">
+        <a class="btn btn-default sidebarBtn dropdown-toggle" type="button" id="dropdownMenuDashEdit" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" title="Редактор дэшбордов">
+          <i class="fa fa-dashboard fa-2x"></i>
+          <!--<i class="fa fa-desktop fa-2x"></i>-->
+        </a>
+        <ul class="dropdown-menu dropdown-menu-left sidebarLeftMenu" aria-labelledby="dropdownMenuDashEdit">
+          <li><a ui-sref="main.newdash">Новый дэшборд</a></li>
+          <li><a ui-sref="main.editdash">Все дэшборды</a></li>
+        </ul>
+      </div>
+    </li>
+    <li ng-show="LoggedInAs.isAdmin==true">
+      <div class="dropdown">
+        <a class="btn btn-default sidebarBtn dropdown-toggle" type="button" id="dropdownMenuProc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" title="Редактор процессоров">
+          <i class="fa fa-life-ring fa-2x"></i>
+          <!--<i class="fa fa-desktop fa-2x"></i>-->
+        </a>
+        <ul class="dropdown-menu dropdown-menu-left sidebarLeftMenu" aria-labelledby="dropdownMenuProc">
+          <li><a ui-sref="main.newprocessor">Новый процессор</a></li>
+          <li><a ui-sref="main.editprocessor">Все процессоры</a></li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="dropdown">
+        <a class="btn btn-default sidebarBtn dropdown-toggle" type="button" id="dropdownMenuSett" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" title="Настройки">
+          <i class="fa fa-cog fa-2x"></i>
+          <!--<i class="fa fa-desktop fa-2x"></i>-->
+        </a>
+        <ul class="dropdown-menu dropdown-menu-left  multi-level sidebarLeftMenu" aria-labelledby="dropdownMenuSett">
+          <li><a href="" ng-click="allowSorting()">Сортировка</a></li>
+          <li class="dropdown-submenu">
+            <a tabindex="-1" href="">Тема</a>
+            <ul class="dropdown-menu">
+              <li><a tabindex="-1" href="" ng-click="changeTheme('dark')">Темная</a></li>
+              <li><a tabindex="-1" href="" ng-click="changeTheme('light')">Светлая</a></li>
+            </ul>
+          </li>
+          <!--<li><a href="" ng-click="$ServiceExport.image('#mychartsID', 'dashboard')">Экспорт рабочего листа</a></li>-->
+        </ul>
+      </div>
+    </li>
+
+  </ul>
+
+  <!-- /.sidebar-collapse -->
+</div>
+
+<div class="mypagecontainer" ui-view="">
+
+</div>

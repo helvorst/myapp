@@ -1,0 +1,56 @@
+<div class=" zoomViewContainer ">
+
+  <div id ="zoomViewLeftPanel" class="col-md-3 zoomViewLeftPanel" ng-include ="'app/Box/ZoomViewCarousel.html'"> </div>
+
+  <div id="zoomViewMainPanel"  class="col-md-9 zoomViewMainPanel"  >
+
+    <div id="zoomViewMainPanelTopContainer"  resizable r-directions="['bottom']">
+      <div ng-show="chartInfo.settings.defaultKind!='table'" id="chartContainer" style="height:100%;">
+        <!--name for map only-->
+        <div ng-show="chartInfo.settings.defaultKind=='map'", class="chartName" , style="height:5%;" id="chartName{{chartInfo.id}}">{{chartInfo.name}}</div>
+        <!--if you push closing div to new string there - go and change DirectiveModalRender-->
+        <div id="chart" after-render-modal="draw(whoIsActive)" style="height:95%;"></div>
+      </div>
+    </div>
+
+    <div id = "zoomViewMainPanelBottomContainer" class="row">
+      <div id="footer" class="modal-footer" style="">
+        <div class="btn-group">
+          <a id="export" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Экспорт<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="" ng-click="$ServiceExport.excel('#chart', chartInfo.name.substring(0, 255))">Excel</a></li>
+            <li><a href="" ng-click="$ServiceExport.image('#chart', chartInfo.name.substring(0, 255) )">PNG</a></li>
+          </ul>
+        </div>
+        <a class="btn btn-success" ng-click="hideSettings()">Настройки</a>
+        <a class="btn btn-primary" ng-click="ok()">ОК</a>
+        <a class="btn btn-warning" ng-click="cancel()">Отмена</a>
+      </div>
+
+      <div id="tablesContainer" class="zoomViewTablesContainer">
+        <div id="simpleTable"  ng-show="chartInfo.settings.tableConfig.table=='simple'"></div>
+        <div id="pivotTable"  ng-show="chartInfo.settings.tableConfig.table=='pivot'"></div>
+      </div>
+    </div>
+    <!--watch-table-change="heatmap()"-->
+    <canvas class="underCover"></canvas>
+
+    <!---->
+
+
+    <!--<div class="row col-md-2 zoomViewRightPanel">-->
+      <!--<h1>something-2</h1>-->
+    <!--</div>-->
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+</div>

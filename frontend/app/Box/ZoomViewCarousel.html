@@ -1,0 +1,211 @@
+<div  id="myCarousel"  class="carousel slide" data-interval="false" data-ride="carousel"  >
+
+
+
+  <!-- Wrapper for slides -->
+  <div class=" carousel-inner" role="listbox">
+
+    <div class="item ">
+      <div class="panel-heading">
+        <h3 class="yellowHeader">График</h3>
+      </div>
+      <hr class="yellowHR"/>
+
+      <div class="panel-body" >
+        <h4 class="yellowSubHeader">Какого типа?</h4>
+
+        <a class="btn btn-default "
+           ng-class="{'btn btn-default' : true, 'activechart' : (whoIsActive=='bar' || whoIsActive=='stackedBar' || whoIsActive=='fullStackedBar')}"
+           ng-click="draw('bar')"><i class="fa fa-bar-chart fa-2x charticon"></i></a>
+
+        <a class="btn btn-default " ng-class="{'btn btn-default' : true, 'activechart' : (whoIsActive=='pie' || whoIsActive=='doughnut')}"
+           ng-click="draw('pie')"><i
+          class="fa fa-pie-chart fa-2x charticon"></i></a>
+
+        <a class="btn btn-default "
+           ng-class="{'btn btn-default' : true, 'activechart' : (whoIsActive=='line' || whoIsActive=='stackedLine' || whoIsActive=='fullStackedLine')}"
+           ng-click="draw('line')"><i
+          class="fa fa-line-chart fa-2x charticon"></i></a>
+
+        <a class="btn btn-default "
+           ng-class="{'btn btn-default' : true, 'activechart' : (whoIsActive=='area' || whoIsActive=='stackedArea' || whoIsActive=='fullStackedArea')}"
+           ng-click="draw('area')"><i
+          class="fa fa-area-chart fa-2x charticon"></i></a>
+
+        <br/>
+        <hr class="shortHR"/>
+        <br/>
+
+
+        <div ng-show="(whoIsActive=='bar' || whoIsActive=='stackedBar' || whoIsActive=='fullStackedBar')">
+          <p class="yellowSubHeader">Бар-чарт:
+            <span ng-show=" whoIsActive=='bar'">обычный </span>
+            <span ng-show=" whoIsActive=='stackedBar'">стэкированный </span>
+            <span ng-show=" whoIsActive=='fullStackedBar'">стэкированный нормированный </span>
+          </p>
+          <button class="btn btn-default " ng-class="{'btn btn-default' : true, 'activechart' : whoIsActive=='bar'}"
+                  ng-click="draw('bar')">Обычный
+          </button>
+          <button class="btn btn-default "
+                  ng-class="{'btn btn-default' : true, 'activechart' :  whoIsActive=='stackedBar'}"
+                  ng-click="draw('stackedBar')">Стэк
+          </button>
+          <button class="btn btn-default "
+                  ng-class="{'btn btn-default' : true, 'activechart' :  whoIsActive=='fullStackedBar'}"
+                  ng-click="draw('fullStackedBar')">Нормированный
+          </button>
+        </div>
+
+        <div ng-show="(whoIsActive=='pie' || whoIsActive=='doughnut')">
+          <p class="yellowSubHeader">Пирог-чарт:
+            <span ng-show=" whoIsActive=='pie'">Обычный </span>
+            <span ng-show=" whoIsActive=='doughnut'">Пончик </span>
+          </p>
+          <button class="btn btn-default "
+                  ng-class="{'btn btn-default' : true, 'activechart' : whoIsActive=='pie'}"
+                  ng-click="draw('pie')">Обычный
+          </button>
+          <button class="btn btn-default "
+                  ng-class="{'btn btn-default' : true, 'activechart' : whoIsActive=='doughnut'}"
+                  ng-click="draw('doughnut')">Пончик
+          </button>
+        </div>
+
+        <div ng-show="(whoIsActive=='line' || whoIsActive=='stackedLine' || whoIsActive=='fullstackedLine')">
+          <p class="yellowSubHeader">Линия:
+            <span ng-show=" whoIsActive=='line'">обычный </span>
+            <span ng-show=" whoIsActive=='stackedLine'">стэкированный </span>
+            <span ng-show=" whoIsActive=='fullstackedLine'">стэкированный нормированный </span>
+          </p>
+          <button class="btn btn-default " type="checkbox"
+                  ng-class="{'btn btn-default' : true, 'activechart' : whoIsActive=='line'}"
+                  ng-click="draw('line')">Обычный
+          </button>
+          <button class="btn btn-default " type="checkbox"
+                  ng-class="{'btn btn-default' : true, 'activechart' : whoIsActive=='stackedLine'}"
+                  ng-click="draw('stackedLine')">Стэк
+          </button>
+          <button class="btn btn-default " type="checkbox"
+                  ng-class="{'btn btn-default' : true, 'activechart' : whoIsActive=='fullstackedLine'}"
+                  ng-click="draw('fullstackedLine')">Нормированный стэк
+          </button>
+        </div>
+
+        <div ng-show="(whoIsActive=='area' || whoIsActive=='stackedArea' || whoIsActive=='fullstackedArea')">
+          <p class="yellowSubHeader">Область:
+            <span ng-show=" whoIsActive=='area'">обычный </span>
+            <span ng-show=" whoIsActive=='stackedArea'">стэкированный </span>
+            <span ng-show=" whoIsActive=='fullStackedArea'">стэкированный нормированный </span></p>
+          <button class="btn btn-default " type="checkbox"
+                  ng-class="{'btn btn-default' : true, 'activechart' : whoIsActive=='area'}"
+                  ng-click="draw('area')">Обычный
+          </button>
+          <button class="btn btn-default " type="checkbox"
+                  ng-class="{'btn btn-default' : true, 'activechart' : whoIsActive=='stackedArea'}"
+                  ng-click="draw('stackedArea')">Стэк
+          </button>
+          <button class="btn btn-default " type="checkbox"
+                  ng-class="{'btn btn-default' : true, 'activechart' : whoIsActive=='fullstackedArea'}"
+                  ng-click="draw('fullstackedArea')">Нормированный стэк
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="item active">
+      <div class="panel-heading">
+        <h3 class="yellowHeader">Таблица</h3>
+      </div>
+
+      <hr/>
+
+      <div class="panel-body">
+        <h4 class="yellowSubHeader">Итоги</h4>
+        <div class="row">
+          <label>Ряды:</label>
+          <div class="col-sm-offcet-1">
+          <a class="btn btn-default " ng-class="{'activechart' : (chartInfo.settings.tableConfig.pivotConfig.showRowGrandTotals)}" ng-click="chartInfo.settings.tableConfig.pivotConfig.showRowGrandTotals=!chartInfo.settings.tableConfig.pivotConfig.showRowGrandTotals; modifyPivotTable()">итог</a>
+          <a class="btn btn-default " ng-class="{'activechart' : (chartInfo.settings.tableConfig.pivotConfig.showRowTotals)}" ng-click="chartInfo.settings.tableConfig.pivotConfig.showRowTotals=!chartInfo.settings.tableConfig.pivotConfig.showRowTotals; modifyPivotTable()">подитог</a>
+          </div>
+        </div>
+        <div class="row">
+          <label>Столбцы:</label>
+          <div class="col-sm-offcet-1">
+          <a class="btn btn-default " ng-class="{'activechart' : (chartInfo.settings.tableConfig.pivotConfig.showColumnGrandTotals)}" ng-click="chartInfo.settings.tableConfig.pivotConfig.showColumnGrandTotals=!chartInfo.settings.tableConfig.pivotConfig.showColumnGrandTotals; modifyPivotTable()">итог</a>
+          <a class="btn btn-default " ng-class="{'activechart' : (chartInfo.settings.tableConfig.pivotConfig.showColumnTotals)}" ng-click="chartInfo.settings.tableConfig.pivotConfig.showColumnTotals=!chartInfo.settings.tableConfig.pivotConfig.showColumnTotals; modifyPivotTable()">подитог</a>
+          </div>
+        </div>
+
+        <hr/>
+
+        <h4 class="yellowSubHeader">Развернуть</h4>
+        <div class="row">
+          <a class="btn btn-default "  ng-click="chartInfo.settings.tableConfig.pivotConfig.expandRows=!chartInfo.settings.tableConfig.pivotConfig.expandRows; expand()">ряды</a>
+          <a class="btn btn-default "  ng-click="chartInfo.settings.tableConfig.pivotConfig.expandColumns=!chartInfo.settings.tableConfig.pivotConfig.expandColumns; expand()">столбцы</a>
+        </div>
+
+        <hr/>
+
+        <h4 class="yellowSubHeader">Вид итога</h4>
+        <div class="row">
+          <a class="btn btn-default " ng-class="{'activechart' : (chartInfo.settings.tableConfig.pivotConfig.summaryType=='sum')}" ng-click="totalFunction('sum')">sum</a>
+          <a class="btn btn-default " ng-class="{'activechart' : (chartInfo.settings.tableConfig.pivotConfig.summaryType=='min')}" ng-click="totalFunction('min')">min</a>
+          <a class="btn btn-default " ng-class="{'activechart' : (chartInfo.settings.tableConfig.pivotConfig.summaryType=='max')}" ng-click="totalFunction('max')">max</a>
+          <a class="btn btn-default " ng-class="{'activechart' : (chartInfo.settings.tableConfig.pivotConfig.summaryType=='avg')}" ng-click="totalFunction('avg')">avg</a>
+          <a class="btn btn-default " ng-class="{'activechart' : (chartInfo.settings.tableConfig.pivotConfig.summaryType=='count')}" ng-click="totalFunction('count')">count</a>
+          <a class="btn btn-default " ng-class="{'activechart' : (chartInfo.settings.tableConfig.pivotConfig.summaryType=='custom')}" ng-click="totalFunction('custom')">custom</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item ">
+      <div class="panel-heading">
+        <h3 class="yellowHeader">Анализ</h3>
+      </div>
+
+      <hr/>
+
+      <div class="panel-body">
+        <h4 class="yellowSubHeader">Heatmap</h4>
+        <a class="btn btn-default " ng-class="{'activechart' : (chartInfo.settings.tableConfig.pivotConfig.heatmap.on)}" ng-click="chartInfo.settings.tableConfig.pivotConfig.heatmap.on=!chartInfo.settings.tableConfig.pivotConfig.heatmap.on; heatmap()">Включить</a>
+        <a class="btn btn-default " ng-class="{'activechart' : (chartInfo.settings.tableConfig.pivotConfig.heatmap.onWithTotal)}" ng-click="chartInfo.settings.tableConfig.pivotConfig.heatmap.onWithTotal=!chartInfo.settings.tableConfig.pivotConfig.heatmap.onWithTotal; heatmap()">Итоги отдельно</a>
+        <hr/>
+
+        <h4 class="yellowSubHeader">Динамика</h4>
+        <a class="btn btn-default " ng-class="{'activechart' : (chartInfo.settings.tableConfig.pivotConfig.absoluteDeviation)}" ng-click="chartInfo.settings.tableConfig.pivotConfig.absoluteDeviation=!chartInfo.settings.tableConfig.pivotConfig.absoluteDeviation">Абсолютное отклонение</a>
+        <a class="btn btn-default " ng-class="{'activechart' : (chartInfo.settings.tableConfig.pivotConfig.chainGrowthRate)}" ng-click="">Цепной темп роста</a>
+        <hr/>
+      </div>
+
+    </div>
+
+    <div class="item">
+      <div class="panel-heading">
+        <h3 class="yellowHeader">Нагадили?</h3>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Indicators -->
+  <ol class="carousel-indicators myCarouselCnt">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+  </ol>
+  <!--<div class="">-->
+  <!--data-slide is used by both Bootstrap and ui.bootstrap so there is a conflict here: use  ng-non-bindable-->
+  <!-- Left and right controls -->
+  <a  class="left carousel-control"  data-target="#myCarousel" role="button" data-slide="prev">
+    <span class="fa fa-chevron-left fa-2x" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a  class="right carousel-control"  data-target="#myCarousel" role="button" data-slide="next">
+    <span class="fa fa-chevron-right fa-2x" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+
+
+</div>
